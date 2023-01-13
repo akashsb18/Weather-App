@@ -22,24 +22,3 @@ const server = http.createServer((req, res) => {
 server.listen(8000, "127.0.0.1");
 
 
-
-// const server = http.createServer((req, res) => {
-//     if (req.url == '/') {
-//         requests("https://api.openweathermap.org/data/2.5/weather?q=kolkata&appid=0bfd89f4982a2d416a4ac5d299d03f9e")
-
-//         server.on('data', (chunk) => {
-//             console.log(chunk);
-//         })
-//         server.on('end', (err) => {
-//             if (err) {
-//                 return console.log("connection lost due to errors", err);
-//             }
-//             console.log('end');
-//         })
-//     }
-//     else {
-
-//     }
-// });
-
-
