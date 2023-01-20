@@ -22,7 +22,7 @@ body {
     border-radius: 0.5rem;
     box-shadow: 0 0.2rem 5rem 1rem rgba(0, 0, 0, 0.2);
     min-width: 20rem;
-    min-height: 28rem;
+    min-height: 30rem;
     transform: translate3d(0, 0, 0);
     overflow: hidden;
     position: relative;
@@ -64,6 +64,39 @@ body {
     from {
         transform: rotate(360deg);
     }
+}
+
+.Search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input.search-bar {
+    border: none;
+    outline: none;
+    padding: 0.4rem 1rem;
+    border-radius: 24px;
+    background: rgb(241, 241, 241);
+    color: black;
+    font-size: 105%;
+}
+
+button {
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    background: #bebbbb2b;
+    color: white;
+    cursor: pointer;
+
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 #weatherIcon {
