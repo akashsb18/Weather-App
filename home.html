@@ -22,17 +22,20 @@
         <div class="wave two"></div>
         <div class="wave three"></div>
 
-        <div id="weatherIcon"><i class="fa-solid fa-sun" style="color: #eccc68;"></i>
+        <div id="weatherIcon" class="ico"><i class="fa-solid fa-sun" style="color: #eccc68;"></i>
         </div>
-        <!-- <div class="Search">
+        <div class="weatherIcon"><img src="" /></div>
+        <div class="Search">
             <input type="search" class="search-bar" placeholder="Search">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div> -->
+        </div>
         <div id="info" class="info">
-            <div class="location"><i class="icon fa-solid fa-street-view"></i>Pune ,{%country%}</div>
+            <div class="location"><i class="icon fa-solid fa-street-view"></i><span class="city">Pune</span> ,<span
+                    class="country">India</span>
+            </div>
             <div id="date">WED | OCT 21 | 10:00 AM</div>
-            <div id="" class="temp">{%tempVal%}</div>
-            <div class="range">{%minTemp%} | {%maxTemp%} C</div>
+            <div id="" class="temp">32°C</div>
+            <div class="range"><span class="min">32</span> | <span class="max">34</span></div>
         </div>
     </div>
 
@@ -101,9 +104,8 @@
 
         currDate.innerHTML = `${days[getDay]} | ${Months[getMonth]}` + " " + getTime();
 
-
     </script>
-
+    <script src="index.js"></script>
 </body>
 
 </html>

@@ -1,46 +1,42 @@
-const fs = require("fs");
-const http = require("http");
-var requests = require("requests");
 
-const homeFile = fs.readFileSync('home.html', 'utf-8');
 
-//
+let weather = {
+    "apiKey": "0bfd89f4982a2d416a4ac5d299d03f9e",
+    fetchWeather: function (city) {
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + this.apiKey + "&units=metric")
+            .then((response) => response.json())
+            .then((data) => this.displayWeather(data));
+        // .then((data) => console.log(data));
+    },
+    displayWeather: function (data) {
+        const { name } = data;
+        const { country } = data.sys;
+        const { temp, temp_min, temp_max } = data.main;
+        const { icon } = data.weather[0];
+        // console.log(main);
+        // console.log(country);
+        document.querySelector(".city").innerText = name;
+        document.querySelector(".country").innerText = country;
+        document.querySelector(".temp").innerText = temp + "°C";
+        document.querySelector(".min").innerText = "Min temp " + temp_min + "°C";
+        document.querySelector(".max").innerText = "Max temp " + temp_max + "°C";
+        document.querySelector(".weathericon").src = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
-const replaceVal = (tempVal, orgVal) => {
-    let temperature = tempVal.replace("{%tempVal%}", orgVal.main.temp);
-    temperature = temperature.replace("{%minTemp%}", orgVal.main.temp_min);
-    temperature = temperature.replace("{%maxTemp%}", orgVal.main.temp_max);
-    temperature = temperature.replace("{%country%}", orgVal.sys.country);
-    // console.log(temperature);
-    return temperature;
-}
-
-// console.log(replaceVal);
-
-const server = http.createServer((req, res) => {
-    if (req.url == '/') {
-        requests('https://api.openweathermap.org/data/2.5/weather?q=Pune&appid=0bfd89f4982a2d416a4ac5d299d03f9e&units=metric')
-            .on('data', function (chunk) {
-                const objData = JSON.parse(chunk);
-                const arr = [objData];
-                // console.log(arr);
-                const realTimeData = arr.map(val => {
-                    return replaceVal(homeFile, val);
-                }).join("");
-                res.write(realTimeData);
-                // console.log(realTimeData);
-                // console.log(arr[0].main.temp);
-            })
-
-            .on('end', function (err) {
-                if (err) return console.log('connection closed due to errors', err);
-
-                // console.log('end');
-                res.end();
-            });
+    },
+    search: function () {
+        this.fetchWeather(document.querySelector(".search-bar").value);
     }
+};
 
+document.querySelector(".Search button").addEventListener("click", function () {
+    weather.search();
+})
+
+document.querySelector('.search-bar').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        weather.search();
+    }
 });
-server.listen(8000, "127.0.0.1");
 
 
+weather.fetchWeather("kolkata");

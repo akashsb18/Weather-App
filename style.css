@@ -22,7 +22,7 @@ body {
     border-radius: 0.5rem;
     box-shadow: 0 0.2rem 5rem 1rem rgba(0, 0, 0, 0.2);
     min-width: 20rem;
-    min-height: 30rem;
+    min-height: 35rem;
     transform: translate3d(0, 0, 0);
     overflow: hidden;
     position: relative;
@@ -40,18 +40,18 @@ body {
     margin-top: -20rem;
     /* transform-origin: 50% 48%; */
     border-radius: 43%;
-    animation: drift 3000ms infinite linear;
+    animation: drift 7300ms infinite linear;
     /* z-index: 1; */
 }
 
 .wave.three {
-    animation: drift 5000ms infinite linear;
+    animation: drift 9400ms infinite linear;
     /* z-index: 2 !important; */
     opacity: 0.2;
 }
 
 .wave.two {
-    animation: drift 7000ms infinite linear;
+    animation: drift 13200ms infinite linear;
     opacity: 0.1;
     /* z-index: 3 !important; */
 }
@@ -89,7 +89,7 @@ button {
     height: 44px;
     width: 44px;
     outline: none;
-    background: #bebbbb2b;
+    background: rgb(186, 219, 238);
     color: white;
     cursor: pointer;
 
@@ -117,12 +117,10 @@ button:hover {
 
     0%,
     100% {
-        /* transform: scale(1.1); */
         scale: 1.1;
     }
 
     50% {
-        /* transform: scale(1.5) */
         scale: 1.5;
     }
 }
@@ -154,11 +152,11 @@ button:hover {
 
     0%,
     100% {
-        transform: translateX(0.5rem);
+        transform: translateX(0.2rem);
     }
 
     50% {
-        transform: translateX(-0.5rem);
+        transform: translateX(-0.7rem);
     }
 
 }
